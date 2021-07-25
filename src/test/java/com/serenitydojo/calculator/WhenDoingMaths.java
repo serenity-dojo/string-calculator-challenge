@@ -9,11 +9,11 @@ public class WhenDoingMaths {
 
     @Test
     public void shouldReturnZeroForAnEmptyString() {
-        assertThat(calculator.evaluate("1+2")).isEqualTo(3);
+        assertThat(calculator.evaluate("")).isEqualTo(0);
     }
 
     @Test(expected = IllegalMathsOperatorException.class)
-    public void shouldReportNonSupportedOperations() {
+    public void shouldReportNonSupportedOperations() throws IllegalMathsOperatorException {
         calculator.evaluate("1 ^ 2");
     }
 

@@ -1,7 +1,7 @@
 package com.serenitydojo.calculator;
 
 public class Calculator {
-    public int evaluate(String expression) throws IllegalMathsOperatorException{
+    public int evaluate(String expression) {
 
         String operators[] = expression.replaceAll("\\s", "").split("[0-9]+");
         String operands[] = expression.replaceAll("\\s", "").split("[*/+-]");
@@ -23,7 +23,7 @@ public class Calculator {
             }
             else
             {
-                throw new IllegalMathsOperatorException("Unknown operator " + operators[i]);
+                throw new IllegalMathsOperatorException("Unknown operator ");
             }
         }
         return runningTotal;
