@@ -34,7 +34,7 @@ public class Calculator {
                     case "/":
                         total /= Integer.parseInt(numberStr[i + 1]);
                         break;
-                    case "^":
+                    default:
                         throw new Exception("Unexpected operator" + operatorStr[i]);
                 }
 
