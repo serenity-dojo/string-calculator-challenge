@@ -3,7 +3,7 @@ package com.serenitydojo.calculator;
 
 
 public class Calculator {
-    public static int evaluate(String str) throws Exception {
+    public static int evaluate(String str) {
         str = str.replace(" ", "");
         if (str.isEmpty()) {
             return 0;
@@ -35,7 +35,8 @@ public class Calculator {
                         total /= Integer.parseInt(numberStr[i + 1]);
                         break;
                     default:
-                        throw new Exception("Unexpected operator" + operatorStr[i]);
+                        throw new IllegalOperatorException("Unexpected operator");
+
                 }
 
                 if (i + 2 >= operatorStr.length) continue; // if meets the last operands already
@@ -45,4 +46,6 @@ public class Calculator {
             return Integer.parseInt(String.valueOf(total));
         }
     }
+
+
 }
