@@ -14,18 +14,32 @@ public class Calculator {
         return 0;
     }
 
-    private int doingTheOperation( int number1, int number2) {
-        switch (this.operator) {
-            case "+":
-                return number1 + number2;
-            case "-":
-                return number1 - number2;
-            case "/":
-                return number1 / number2;
-            case "*":
-                return number1 * number2;
-            default:
-                return number1;
+    private void ifNotAnOperatorCallIllegalMathsOperatorException() {
+
+
+
+    }
+
+    private int doingTheOperation( int number1, int number2) throws IllegalMathsOperatorException{
+        System.out.println("---" + this.operator + "---");
+        ifNotAnOperatorCallIllegalMathsOperatorException();
+
+        if(this.operator.matches("(-|/|\\+|\\*)") || this.operator == "") {
+            switch (this.operator) {
+                case "+":
+                    return number1 + number2;
+                case "-":
+                    return number1 - number2;
+                case "/":
+                    return number1 / number2;
+                case "*":
+                    return number1 * number2;
+                default:
+                    return number1;
+            }
+        }
+        else {
+            throw new IllegalMathsOperatorException("Unknown operator " + this.operator);
         }
     }
 
@@ -39,9 +53,6 @@ public class Calculator {
     }
 
     private void preparingTheCalculation(String element) {
-        int number1 = 0;
-        int number2 = 0;
-
         if (isNumeric(element)) {
             int[] intFromString = gettingIntFromString(element);
             this.evaluation = doingTheOperation(intFromString[0], intFromString[1]);

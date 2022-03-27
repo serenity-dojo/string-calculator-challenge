@@ -13,10 +13,10 @@ public class WhenDoingMaths {
         assertThat(calculator.evaluate("")).isEqualTo(0);
     }
 
-//    @Test(expected = IllegalMathsOperatorException.class)
-//    public void shouldReportNonSupportedOperations() {
-//        calculator.evaluate("1 ^ 2");
-//    }
+    @Test(expected = IllegalMathsOperatorException.class)
+    public void shouldReportNonSupportedOperations() {
+        calculator.evaluate("1 ^ 2");
+    }
 
     @Test
     public void shouldReturnTheValueOfASingleNumber() {
